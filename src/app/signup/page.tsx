@@ -1,32 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { SiGitlab } from "react-icons/si";
+import Logo from "../common/logo";
+import Greetings from "../common/greeting";
+import Footer from "../common/footer";
 
 export default function Home() {
 
     return (
         <div className="flex flex-col h-screen p-5 font-semibold">
-            <div className="h-4/20 flex item-center justify-center">
-                <Image
-                    src="/img/UIX-Class-Square.svg"
-                    alt="Next.js logo"
-                    width={0}
-                    height={0}
-                    style={{ width: "40vw", height: "auto" }}
-                    priority
-                />
-            </div>
-            <div className="h-2/20 flex flex-col w-full max-w-md mx-auto">
-                <div className="flex text-[25px]">
-                    Create an account
-                </div>
-                <div className="flex text-[14px] text-[#999EA1] ">
-                    Connect with your friends today!
-                </div>
-            </div>
+            <Logo logoWidth="w-[40vw]" heightObject="h-4/20"></Logo>
+            <Greetings header="Create an account" greetings="Connect with your friends today!" ></Greetings>
             <div className="h-6/20 flex flex-col">
                 <form>
                     <div className="w-full max-w-md mx-auto">
@@ -98,17 +83,7 @@ export default function Home() {
                 </div>
 
             </div>
-
-            <div className="h-1/20 w-full max-w-md mx-auto  flex flex-col items-center">
-                <div className="text-gray-500 text-sm">
-                    Already have an account?{" "}
-                    <a href="/login" className="text-indigo-900 font-semibold hover:underline">
-                        Login
-                    </a>
-                </div>
-
-            </div>
-
+            <Footer footerStatement="Already have an account?" action="Login" actionUrl="/login" ></Footer>
         </div>
     );
 }

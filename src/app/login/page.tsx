@@ -1,32 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { SiGitlab } from "react-icons/si";
+import Logo from "../common/logo";
+import Greetings from "../common/greeting";
+import Footer from "../common/footer";
+
 
 export default function Home() {
 
     return (
         <div className="flex flex-col h-screen p-5 font-semibold">
-            <div className="h-4/20 flex item-center justify-center">
-                <Image
-                    src="/img/UIX-Class-Square.svg"
-                    alt="Next.js logo"
-                    width={0}
-                    height={0}
-                    style={{ width: "40vw", height: "auto" }}
-                    priority
-                />
-            </div>
-            <div className="h-2/20 flex flex-col w-full max-w-md mx-auto">
-                <div className="flex text-[25px]">
-                    Hi, Wecome Back! 👋
-                </div>
-                <div className="flex text-[14px] text-[#999EA1] ">
-                    Hello again, you’ve been missed!
-                </div>
-            </div>
+            <Logo logoWidth="w-[40vw]" heightObject="h-4/20"></Logo>
+            <Greetings header="Hi, Wecome Back! 👋" greetings="Hello again, you’ve been missed!" ></Greetings>
             <div className="h-6/20 flex flex-col">
                 <form>
                     <div className="w-full max-w-md mx-auto">
@@ -70,25 +57,19 @@ export default function Home() {
                 </form>
             </div>
             <div className="h-7/20 flex flex-col w-full max-w-md mx-auto">
-                {/* Login button */}
                 <button className="w-full bg-[#3a0ca3] text-white py-3 rounded-lg text-lg font-medium shadow-md hover:bg-[#2c0897] transition">
                     Login
                 </button>
-
-                {/* Divider */}
                 <div className="flex items-center w-full my-6">
                     <div className="flex-grow border-t border-gray-300"></div>
                     <span className="mx-3 text-gray-500 text-sm">Or With</span>
                     <div className="flex-grow border-t border-gray-300"></div>
                 </div>
-
-                {/* Social Buttons */}
                 <div className="flex items-center justify-between space-x-4">
                     <button className="flex items-center justify-center w-50 h-12 py-2 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 transition">
                         <FaGithub className="mr-2 text-xl" />
                         GitHub
                     </button>
-
                     <button className="flex items-center justify-center w-50 h-12 py-2 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 transition">
                         <SiGitlab className="mr-2 text-xl text-orange-600" />
                         GitLab
@@ -96,17 +77,7 @@ export default function Home() {
                 </div>
 
             </div>
-
-            <div className="h-1/20 w-full max-w-md mx-auto  flex flex-col items-center">
-                <div className="text-gray-500 text-sm">
-                    Don’t have an account?{" "}
-                    <a href="/signup" className="text-indigo-900 font-semibold hover:underline">
-                        Sign Up
-                    </a>
-                </div>
-
-            </div>
-
+            <Footer footerStatement="Don’t have an account?" action="Sign up" actionUrl="/signup" ></Footer>
         </div>
     );
 }
