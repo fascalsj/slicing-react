@@ -1,6 +1,4 @@
 import React from 'react'
-import Image from "next/image";
-
 
 interface LogoProps {
     logoWidth: string;
@@ -10,13 +8,11 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ logoWidth, heightObject }) => {
     return (
         <div className={[heightObject, "flex", "items-center", "justify-center"].join(" ")}>
-            <Image
-                src="/img/UIX-Class-Square.svg"
+            <img src="/img/UIX-Class-Square.svg"
                 alt="Next.js logo"
                 width={0}
                 height={0}
                 className={[logoWidth, "h-auto"].join(" ")}
-                priority
             />
         </div>
     );

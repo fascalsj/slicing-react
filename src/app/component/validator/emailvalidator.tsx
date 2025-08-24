@@ -6,9 +6,20 @@ export const useEmailValidator = () => {
 
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => {
         const value = e.target.value;
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const atIndex = value.indexOf('@');
+        const dotIndex = value.lastIndexOf('.');
+
+        const isValid =
+            typeof value === 'string' &&
+            value.includes('@') &&
+            atIndex > 0 &&
+            dotIndex > atIndex + 1 &&
+            dotIndex < value.length - 1 &&
+            !value.includes(' ');
+
         setEmail(value);
-        setIsEmailValid(regex.test(value));
+        setIsEmailValid(isValid);
     };
 
     return { email, isEmailValid, handleEmailChange };
