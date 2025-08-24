@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Logo from "./common/logo";
+import Logo from "./component/common/logo";
 
 export default function Home() {
   const router = useRouter();

@@ -2,11 +2,15 @@
 
 import { FaGithub } from "react-icons/fa";
 import { SiGitlab } from "react-icons/si";
-import Logo from "../common/logo";
-import Greetings from "../common/greeting";
-import Footer from "../common/footer";
+import Logo from "../component/common/logo";
+import Footer from "../component/common/footer";
+import Greetings from "../component/common/greeting";
+import { useEmailValidator } from "../component/validator/emailvalidator";
+
 
 export default function Home() {
+
+    const { email, isEmailValid, handleEmailChange } = useEmailValidator();
 
     return (
         <div className="flex flex-col h-screen p-5 font-semibold">
@@ -20,10 +24,21 @@ export default function Home() {
                                 Email
                             </label>
                             <input
-                                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm"
+                                className={[
+                                    'mt-1',
+                                    'block',
+                                    'w-full',
+                                    'rounded-md',
+                                    'px-3',
+                                    'py-2',
+                                    'text-sm',
+                                    isEmailValid ? 'border-gray-300 shadow-sm' : 'border-red-500 ring-2 ring-red-400'
+                                ].join(' ')}
                                 type="email"
                                 name="email"
+                                value={email}
                                 placeholder="Enter your email"
+                                onChange={handleEmailChange}
                                 required
                             />
                         </div>
