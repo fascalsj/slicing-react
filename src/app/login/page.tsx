@@ -9,10 +9,9 @@ import Footer from "../component/common/footer";
 import { useEmailValidator } from "../component/validator/emailvalidator";
 
 
-
-
 export default function Home() {
     const { email, isEmailValid, handleEmailChange } = useEmailValidator();
+    
     return (
         <div className="flex flex-col h-screen p-5 font-semibold">
             <Logo logoWidth="w-[40vw]" heightObject="h-4/20"></Logo>
